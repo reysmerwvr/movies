@@ -8,6 +8,8 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    moviesProvider.getMostPopularMovies();
+
     return CupertinoPageScaffold(
         navigationBar: CupertinoNavigationBar(
           backgroundColor: CupertinoColors.activeGreen,
@@ -59,11 +61,14 @@ class HomePage extends StatelessWidget {
           SizedBox(
             height: 5.0,
           ),
-          FutureBuilder(
-            future: moviesProvider.getMostPopular(),
+          StreamBuilder(
+            stream: moviesProvider.mostPopularMoviesStream,
             builder: (BuildContext context, AsyncSnapshot<List> snapshot) {
               if (snapshot.hasData) {
-                return MovieLandscape(movies: snapshot.data);
+                return MovieLandscape(
+                  movies: snapshot.data,
+                  nextPage: moviesProvider.getMostPopularMovies,
+                );
               } else {
                 return Center(child: CupertinoActivityIndicator());
               }
