@@ -23,10 +23,39 @@ class MovieLandscape extends StatelessWidget {
 
     return Container(
       height: _screenSize.height * 0.3,
-      child: PageView(
+      child: PageView.builder(
         pageSnapping: false,
         controller: _pageController,
-        children: _cards(context),
+        // children: _cards(context),
+        itemCount: movies.length,
+        itemBuilder: (BuildContext context, int i) => _card(context, movies[i]),
+      ),
+    );
+  }
+
+  Widget _card(BuildContext context, Movie movie) {
+    return Container(
+      margin: EdgeInsets.only(right: 15.0),
+      child: Column(
+        children: <Widget>[
+          ClipRRect(
+            borderRadius: BorderRadius.circular(20.0),
+            child: FadeInImage(
+              placeholder: AssetImage('assets/images/no-image.jpg'),
+              image: NetworkImage(movie.getPosterImage()),
+              fit: BoxFit.cover,
+              height: 160.0,
+            ),
+          ),
+          SizedBox(
+            height: 5.0,
+          ),
+          Center(
+            child: Text(movie.title,
+                overflow: TextOverflow.ellipsis,
+                style: CupertinoTheme.of(context).textTheme.textStyle),
+          )
+        ],
       ),
     );
   }
