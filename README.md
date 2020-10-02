@@ -9,6 +9,9 @@
 
 ## 👁 Preview
 
+![home](home.png)
+![detail](detail.png)
+
 ## ⬇️ Version
 
 1.0.0
