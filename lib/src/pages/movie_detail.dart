@@ -35,7 +35,7 @@ class MovieDetail extends StatelessWidget {
   Widget _createAppBar(Movie movie) {
     return CupertinoSliverNavigationBar(
       backgroundColor: CupertinoColors.systemGrey6,
-      automaticallyImplyLeading: false,
+      automaticallyImplyLeading: true,
       largeTitle: Center(
         child: Text(
           movie.title,
@@ -71,11 +71,14 @@ class MovieDetail extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
       child: Row(
         children: <Widget>[
-          ClipRRect(
-            borderRadius: BorderRadius.circular(20.0),
-            child: Image(
-              image: NetworkImage(movie.getPosterImage()),
-              height: 150.0,
+          Hero(
+            tag: movie.uniqueId,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20.0),
+              child: Image(
+                image: NetworkImage(movie.getPosterImage()),
+                height: 150.0,
+              ),
             ),
           ),
           SizedBox(
