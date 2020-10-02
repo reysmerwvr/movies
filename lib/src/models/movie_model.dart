@@ -69,4 +69,11 @@ class Movie {
     }
     return "https://image.tmdb.org/t/p/w500/$posterPath";
   }
+
+  getBackdropPath() {
+    if (posterPath == null) {
+      return "https://748073e22e8db794416a-cc51ef6b37841580002827d4d94d19b6.ssl.cf3.rackcdn.com/not-found.png";
+    }
+    return "https://image.tmdb.org/t/p/w500/$backdropPath";
+  }
 }

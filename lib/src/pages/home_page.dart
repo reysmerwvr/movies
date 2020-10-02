@@ -12,13 +12,13 @@ class HomePage extends StatelessWidget {
 
     return CupertinoPageScaffold(
         navigationBar: CupertinoNavigationBar(
-          backgroundColor: CupertinoColors.activeGreen,
+          backgroundColor: CupertinoColors.systemGrey6,
           middle: Text("Cinema Movies"),
           trailing: Container(
             child: CupertinoButton(
                 child: Icon(
                   CupertinoIcons.search,
-                  color: CupertinoColors.white,
+                  color: CupertinoColors.black,
                 ),
                 onPressed: () {}),
           ),
