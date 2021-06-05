@@ -71,32 +71,32 @@ class MovieLandscape extends StatelessWidget {
     );
   }
 
-  List<Widget> _cards(BuildContext context) {
-    return movies.map((movie) {
-      return Container(
-        margin: EdgeInsets.only(right: 15.0),
-        child: Column(
-          children: <Widget>[
-            ClipRRect(
-              borderRadius: BorderRadius.circular(20.0),
-              child: FadeInImage(
-                placeholder: AssetImage('assets/images/no-image.jpg'),
-                image: NetworkImage(movie.getPosterImage()),
-                fit: BoxFit.cover,
-                height: 160.0,
-              ),
-            ),
-            SizedBox(
-              height: 5.0,
-            ),
-            Center(
-              child: Text(movie.title,
-                  overflow: TextOverflow.ellipsis,
-                  style: CupertinoTheme.of(context).textTheme.textStyle),
-            )
-          ],
-        ),
-      );
-    }).toList();
-  }
+  // List<Widget> _cards(BuildContext context) {
+  //   return movies.map((movie) {
+  //     return Container(
+  //       margin: EdgeInsets.only(right: 15.0),
+  //       child: Column(
+  //         children: <Widget>[
+  //           ClipRRect(
+  //             borderRadius: BorderRadius.circular(20.0),
+  //             child: FadeInImage(
+  //               placeholder: AssetImage('assets/images/no-image.jpg'),
+  //               image: NetworkImage(movie.getPosterImage()),
+  //               fit: BoxFit.cover,
+  //               height: 160.0,
+  //             ),
+  //           ),
+  //           SizedBox(
+  //             height: 5.0,
+  //           ),
+  //           Center(
+  //             child: Text(movie.title,
+  //                 overflow: TextOverflow.ellipsis,
+  //                 style: CupertinoTheme.of(context).textTheme.textStyle),
+  //           )
+  //         ],
+  //       ),
+  //     );
+  //   }).toList();
+  // }
 }
